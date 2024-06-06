@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+        }
+        .container {
+            max-width: 350px;
+            margin: 50px auto;
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            padding: 10px;
+            width: 90%;
+            margin: 10px 0;
+            border: 2px solid #ff4b2b;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            width: 100px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .calculate {
+            background: #ff4b2b;
+            color: white;
+        }
+        .reset {
+            background: #555;
+            color: white;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎯 BMI Calculator 🎯</h2>
+        <label for="weight">Enter Weight (kg):</label>
+        <input type="number" id="weight" placeholder="Weight in kg">
+        
+        <label for="height">Enter Height (m):</label>
+        <input type="number" id="height" placeholder="Height in meters">
+        
+        <button class="calculate" onclick="calculateBMI()">Calculate</button>
+        <button class="reset" onclick="resetFields()">Reset</button>
+
+        <div class="result" id="bmiResult"></div>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+
+            if (weight === "" || height === "" || height <= 0) {
+                document.getElementById("bmiResult").innerHTML = "⚠️ Please enter valid inputs!";
+                return;
+            }
+
+            let bmi = (weight / (height * height)).toFixed(2);
+            let category = "";
+
+            if (bmi < 18.5) category = "Underweight 🥦";
+            else if (bmi < 24.9) category = "Normal weight ✅";
+            else if (bmi < 29.9) category = "Overweight ⚠️";
+            else category = "Obese ❌";
+
+            document.getElementById("bmiResult").innerHTML = `🔥 Your BMI: <strong>${bmi}</strong> (${category})`;
+        }
+
+        function resetFields() {
+            document.getElementById("weight").value = "";
+            document.getElementById("height").value = "";
+            document.getElementById("bmiResult").innerHTML = "";
+        }
+
+        // Enable Enter key to calculate BMI
+        document.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                calculateBMI();
+            }
+        });
+    </script>
+</body>
+</html>
