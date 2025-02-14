@@ -27,12 +27,10 @@ A simple and colorful **BMI Calculator** web application that allows users to ca
 - **JavaScript** - BMI calculation logic
 
 ## BMI Categories
-
-| BMI Range   |   Category       |  
-| < 18.5      | Underweight 🥦  |
-| 18.5 - 24.9 | Normal weight ✅|
-| 25 - 29.9   | Overweight ⚠️   |
-| ≥30         | Obese ❌        |
+< 18.5      = Underweight 🥦
+18.5 - 24.9 = Normal weight ✅
+25 - 29.9   = Overweight ⚠️   
+≥30         = Obese ❌       
 
 ##  Future Enhancements
 
