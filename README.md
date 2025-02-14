@@ -28,8 +28,11 @@ A simple and colorful **BMI Calculator** web application that allows users to ca
 
 ## BMI Categories
 < 18.5      = Underweight 🥦
+
 18.5 - 24.9 = Normal weight ✅
+
 25 - 29.9   = Overweight ⚠️   
+
 ≥30         = Obese ❌       
 
 ##  Future Enhancements
